@@ -28,13 +28,13 @@ if($product && $tag){
     header("Location: list_product.php");
     exit;
     }else {
-        header("Location: register.php");
-        exit;  
+        echo"<script>alert('Produto já cadastrado no sistema!');
+                location= 'register.php';</script>";
     }
     
 }else {
-   header("Location: register.php");
-   exit;
+    echo"<script>alert('Preencha todos os campos!');
+    location= 'register.php';</script>";
         
     }
 

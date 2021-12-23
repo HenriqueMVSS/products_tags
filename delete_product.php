@@ -6,13 +6,13 @@ $id= filter_input(INPUT_GET, 'id');
 
 if($id){
 
-  $sql = $conn->prepare("DELETE FROM aluno WHERE id=:id");
+  $sql = $conn->prepare("DELETE FROM product WHERE id=:id");
   $sql->bindValue(':id', $id);
   $sql->execute();
    
 }
 
-header('Location: lista_alunos.php');
+header('Location: list_product.php');
 exit;
 
 ?>
