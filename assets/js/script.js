@@ -1,8 +1,12 @@
 $("#btn-login").on("click", function(){
-    location.href = 'logar.php';
+    location.href = 'register.php';
 });
 
 
-$("#btn-cadastrar").on("click", function(){
-    location.href = 'lista_alunos.php';
+$("#btn-list").on("click", function(){
+    location.href = 'list_product.php';
+});
+
+$("#btn-register").on("click", function(){
+    location.href = 'register.php';
 });

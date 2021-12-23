@@ -5,12 +5,13 @@ error_reporting(E_ALL);
 
 require 'config.php';
 require './dao/ProductDaoMysql.php';
-require './dao/TagDaoMysql.php';
+
 
 $productDao = new ProductDaoMysql($pdo);
+$tagDao = new TagDaoMysql($pdo);
 
 $list_product = $productDao->findAll();
-
+$list_tag = $tagDao->findAll();
 ?>
 
 
@@ -28,22 +29,22 @@ $list_product = $productDao->findAll();
     <h1 class="title">Cadastro de Produtos</h1>
   </header>
   
-  <form>
+  <form method="POST" action="register_action.php">
   <div class="form-row">
     <div class="form-group col-md-6">
      <label for="name"> Nome do Produto:</label>
-          <input type="text" id="name" class="form-control" name="name" placeholder="Produto">
+          <input type="text" id="name" class="form-control" name="name" placeholder="Produto" required>
     </div>
     <div class="form-group col-lg-6">
       <label for="tag" > Tag do Produto: </label>
-        <input type="text" id="tag" class="form-control" name="tag"  placeholder="Insira o nome da tag">
+        <input type="text" id="tag" class="form-control" name="tag"  placeholder="Insira o nome da tag" required>
     </div>
   </div>
 
   <button type="submit" class="btn btn-primary">Cadastrar</button>
 </form>
     
-  <button id="btn-cadastrar" class="btn btn-primary">Lista de Produtos</button>
+  <button id="btn-list" class="btn btn-primary">Lista de Produtos</button>
 
   <script src="assets/js/jquery-3.6.0.min.js"></script>
   <script src="assets/js/script.js"></script>

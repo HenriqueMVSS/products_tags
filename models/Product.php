@@ -27,6 +27,7 @@ interface ProductDAO {
     public function add(Product $p);
     public function findAll();
     public function findById($id);
+    public function findByProduct($product);
     public function update(Product $p);
     public function delete($id);
 

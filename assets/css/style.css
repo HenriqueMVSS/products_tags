@@ -1,0 +1,15 @@
+#delete , #edit {
+    text-decoration: none;
+    
+    
+    color:#fff;
+    margin:3px;
+    display:flex;
+    justify-content:center;
+    text-align: center;
+  }
+
+#imgg {
+    width: 20px;
+    height: 20px;
+  }
