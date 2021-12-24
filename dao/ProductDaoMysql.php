@@ -42,7 +42,20 @@ class ProductDaoMysql implements ProductDAO{
     }
     public function findById($id)
     {
-        
+        $sql = $this->pdo->prepare("SELECT * FROM product where id = :id");
+        $sql->bindValue(':id', $id);
+        $sql->execute();
+        if($sql->rowCount() > 0){
+            $data = $sql->fetch();
+
+            $p = new Product();
+            $p->setId($data['id']);
+            $p->setName($data['name']);
+
+            return $p;
+        } else {
+            return false;
+        }
     }
     public function findByProduct($product)
     {   //Validando se já existe o produto cadastrado.
@@ -63,11 +76,19 @@ class ProductDaoMysql implements ProductDAO{
     }
     public function update(Product $p)
     {
-        
+        $sql = $this->pdo->prepare("UPDATE product set name = :name WHERE id = :id");
+        $sql->bindValue(":id", $p->getId());
+        $sql->bindValue(':name', $p->getName());
+        $sql->execute();
+
+        return true;
     }
     public function delete($id)
     {
-        
+        $sql = $this->pdo->prepare("DELETE FROM product WHERE id = :id");
+        $sql->bindValue(":id",$id);
+        $sql->execute();
+
     }
 
 }
@@ -112,16 +133,36 @@ class TagDaoMysql implements TagDAO{
     }
     public function findById($id)
     {
-        
+        $sql = $this->pdo->prepare("SELECT * FROM tag where id = :id");
+        $sql->bindValue(':id', $id);
+        $sql->execute();
+        if($sql->rowCount() > 0){
+            $data = $sql->fetch();
+
+            $t = new Tag();
+            $t->setId($data['id']);
+            $t->setName($data['name']);
+
+            return $t;
+        } else {
+            return false;
+        }
     }
   
     public function update(Tag $t)
     {
-        
+        $sql = $this->pdo->prepare("UPDATE tag set name = :name WHERE id = :id");
+        $sql->bindValue(":id", $t->getId());
+        $sql->bindValue(':name', $t->getName());
+        $sql->execute();
+
+        return true;
     }
     public function delete($id)
     {
-        
+        $sql = $this->pdo->prepare("DELETE FROM tag WHERE id = :id");
+        $sql->bindValue(":id",$id);
+        $sql->execute();
     }
 
 }

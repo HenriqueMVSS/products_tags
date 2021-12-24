@@ -23,18 +23,14 @@ $list_tag = $tagDao->findAll();
  </header>
 
  
-<table border="1px" width="100%" id="table">
+<table id="dvData" border="1px" width="100%" >
   <tr>
     
-    <th>Código</th>
+    <th>Codigo</th>
     <th>Produto</th>
-    <th>Excluir Produtos</th>
-    <th>Editar Produtos</th>
     <th>Tag do Produto</th>
-    <th>Deletar Tag</th>
-    <th>Editar Tag</th>
-    
-
+    <th>Excluir Produtos</th>
+    <th>Editar Produtos</th>  
     
   </tr>
 
@@ -42,29 +38,28 @@ $list_tag = $tagDao->findAll();
   <tr>
       <td><?=$product->getId();?></td>
       <td><?=$product->getName();?></td>
-      <td>
-            <a id="delete" href="exc_alunos.php?id=<?=$product->getId();?>" onclick="return confirm(' Tem certeza que deseja excluir?')"> <img id='imgg' src="./assets/images/trash_can.png" alt=""> </a>
-      </td>
-      <td>
-         <a id="edit" href="edit_alunos.php?id=<?=$product->getId();?>"><img id='imgg' src="./assets/images/edit.png" alt="">  </a>
-      </td>
+    
    <?php } ?> 
    <?php foreach ($list_tag as $tag){ ?>  
     
       <td><?=$tag->getName();?></td>
 
       <td>
-            <a id="delete" href="exc_alunos.php?id=<?=$tag->getId();?>" onclick="return confirm(' Tem certeza que deseja excluir?')"> <img id='imgg' src="./assets/images/trash_can.png" alt=""> </a>
+      <a id="delete" href="delete_product.php?id=<?=$product->getId();?>" onclick="return confirm(' Tem certeza que deseja excluir?')"> <img id='imgg' src="./assets/images/trash_can.png" alt=""> </a>
       </td>
       <td>
-         <a id="edit" href="edit_alunos.php?id=<?=$tag->getId();?>"><img id='imgg' src="./assets/images/edit.png" alt="">  </a>
+      <a id="edit" href="edit_product.php?id=<?=$product->getId();?>"><img id='imgg' src="./assets/images/edit.png" alt="">  </a>
       </td>
     </tr>
   <?php } ?>
 
 </table>
+
     <button id="btn-register"  href="register.php">Cadastrar Produto</button>
+
+    <button id="btnExport"  class="btn btn-primary m-4">Exportar para CSV</button>
 
   <script src="assets/js/jquery-3.6.0.min.js"></script>
   <script src="assets/js/script.js"></script>
+  <script src="assets/js/xls.js"></script>
 </body>
