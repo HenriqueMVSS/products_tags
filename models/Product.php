@@ -24,7 +24,7 @@ class Product {
 }
 
 interface ProductDAO {
-    public function add(Product $p);
+    public function add(Product $p, $t);
     public function findAll();
     public function findById($id);
     public function findByProduct($product);

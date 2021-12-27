@@ -2,7 +2,7 @@
 
 class Tag {
     private $id;
-    private $name;
+    private $namet;
 
     public function getId(){
         return $this->id;
@@ -13,11 +13,11 @@ class Tag {
     }
  
     public function getName(){
-        return $this->name;
+        return $this->namet;
     }
 
     public function setName($n){
-        $this->name = ucwords(trim($n));
+        $this->namet = ucwords(trim($n));
    }
 
 

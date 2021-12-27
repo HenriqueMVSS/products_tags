@@ -7,28 +7,28 @@ require "config.php";
 require './dao/ProductDaoMysql.php';
 
 $productDao = new ProductDaoMysql($pdo);
-$tagDao = new TagDaoMysql($pdo);
+//$tagDao = new TagDaoMysql($pdo);
 
 $product = filter_input(INPUT_POST, 'name');
 $tag =  filter_input(INPUT_POST, 'tag');
 
 
 if($product && $tag){
- //Validando se já existe o produto cadastrado.
+ //Validando se ja existe o produto cadastrado.
  if($productDao->findByProduct($product) == false){
     $newProduct = new Product();
     $newProduct->setName($product);
 
     $newTag = new Tag();
     $newTag->setName($tag);
-
-    $productDao->add($newProduct);
-    $tagDao->add($newTag);
+    
+    $productDao->add($newProduct, $newTag);
+    
 
     header("Location: list_product.php");
     exit;
     }else {
-        echo"<script>alert('Produto já cadastrado no sistema!');
+        echo"<script>alert('Produto ja cadastrado no sistema!');
                 location= 'register.php';</script>";
     }
     

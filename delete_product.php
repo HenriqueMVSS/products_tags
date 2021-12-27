@@ -8,6 +8,7 @@ $tagDao = new TagDaoMysql($pdo);
 
 $id= filter_input(INPUT_GET, 'id');
 
+
 if($id){
 
   $productDao->delete($id);
