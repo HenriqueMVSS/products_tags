@@ -20,6 +20,11 @@
                             <a class="nav-item nav-link" id="btn-list" href="#">Lista de Produtos</a>
                             <a class="nav-item nav-link" onclick="return confirm(' Desenvolvido por Henrique Silva')" href="#">About</a>
                         </div>
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav ml-5">
+                            <a class="nav-item nav-link" id="btn-list" href="logout.php">Sair do Sistema</a> 
+                            </div>
+                        </div>   
                     </div>
                 </div>
 

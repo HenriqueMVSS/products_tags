@@ -64,17 +64,25 @@ class ProductDaoMysql implements ProductDAO{
         return $array;
     }
     public function findById($id)
-    {
-        $sql = $this->pdo->prepare("SELECT * FROM product where id = :id");
+    {   //die($id);
+        $sql = $this->pdo->prepare("
+        SELECT
+         * FROM product p
+           inner join 
+           product_tag pt on 
+           pt.product_id = p.id
+           where pt.product_id = :id
+        ");
         $sql->bindValue(':id', $id);
         $sql->execute();
+       
         if($sql->rowCount() > 0){
             $data = $sql->fetch();
 
             $p = new Product();
             $p->setId($data['id']);
             $p->setName($data['namep']);
-
+            
             return $p;
         } else {
             return false;
@@ -99,7 +107,14 @@ class ProductDaoMysql implements ProductDAO{
     }
     public function update(Product $p)
     {
-        $sql = $this->pdo->prepare("UPDATE product set namep = :name WHERE id = :id");
+        $sql = $this->pdo->prepare("
+        UPDATE product p
+            INNER JOIN
+            product_tag pt ON p.id = pt.product_id
+            SET p.namep = :name
+            WHERE
+            pt.product_id = :id
+        ");
         $sql->bindValue(":id", $p->getId());
         $sql->bindValue(':name', $p->getName());
         $sql->execute();
@@ -139,7 +154,16 @@ class TagDaoMysql implements TagDAO{
     {
         $array = [];
 
-        $sql = $this->pdo->query("SELECT * FROM tag");
+        $sql = $this->pdo->query("
+            SELECT DISTINCT * 
+            FROM 
+            product p
+            inner join tag t 
+            inner join product_tag on
+            p.id = product_id 
+            where product_id = t.id
+        
+        ");
         if($sql->rowCount() > 0){
             $data = $sql->fetchAll();
 
@@ -174,7 +198,14 @@ class TagDaoMysql implements TagDAO{
   
     public function update(Tag $t)
     {
-        $sql = $this->pdo->prepare("UPDATE tag set name = :name WHERE id = :id");
+        $sql = $this->pdo->prepare("
+        UPDATE tag t 
+            INNER JOIN
+            product_tag pt ON t.id = pt.product_id
+            SET t.name = :name
+            WHERE
+            pt.product_id = :id
+        ");
         $sql->bindValue(":id", $t->getId());
         $sql->bindValue(':name', $t->getName());
         $sql->execute();

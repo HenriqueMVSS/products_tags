@@ -1,5 +1,7 @@
 <?php
 
+$base = 'http://localhost/products_tags/';
+
 try {
   $serverName = "localhost";
   $database = "products";

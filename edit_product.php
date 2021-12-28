@@ -4,6 +4,7 @@ require "config.php";
 require './dao/ProductDaoMysql.php';
 require_once './header.php';
 
+
 $productDao = new ProductDaoMysql($pdo);
 $tagDao = new TagDaoMysql($pdo);
 

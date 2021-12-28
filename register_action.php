@@ -13,7 +13,7 @@ $product = filter_input(INPUT_POST, 'name');
 $tag =  filter_input(INPUT_POST, 'tag');
 
 
-if($product && $tag){
+if($product){
  //Validando se ja existe o produto cadastrado.
  if($productDao->findByProduct($product) == false){
     $newProduct = new Product();
