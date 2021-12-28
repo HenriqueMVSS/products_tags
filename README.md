@@ -3,12 +3,11 @@
 
  
 
-** Criar um banco de dados com um nome de sua preferência!**
+** Criar um banco de dados com um nome de sua preferÃªncia!**
 
-** Após a criação do banco, utilizar os SCRIPTS abaixo para criação das tabelas.**
+** ApÃ³s a criaÃ§Ã£o do banco, utilizar os SCRIPTS abaixo para criaÃ§Ã£o das tabelas.**
 
-<textarea id="story" name="story"
-          rows="50" cols="38">
+#
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50),
@@ -38,11 +37,11 @@ CREATE TABLE `product_tag` (
    CONSTRAINT `tag_id` FOREIGN KEY (`tag_id`) REFERENCES `tag` (`id`)
 );
 
-</textarea>
+#
 
-** Cadastrar um usuário para poder manipular o sistema**
+** Cadastrar um usuÃ¡rio para poder manipular o sistema**
 
-**Na tela de login clica no botão ######Create an Account! **
+**Na tela de login clica no botÃ£o ######Create an Account! **
 
 
 ??? Desenvolvido por Henrique Silva!
