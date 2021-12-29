@@ -40,17 +40,17 @@ if ($sql->rowCount() > 0) {
       </div>
     </div>
   </header>
-  <div class="container">
+  <div id="divTable" class="container">
     <div class="row">
       <div class="col-sm">
 
-        <table class="table" id="dvData" border="1px" width="100%">
+        <table class="table" border="1px" width="100%">
           <thead class="thead-dark">
             <tr>
 
               <!-- <th>Codigo</th> -->
-              <th>Produto</th>
-              <th>Tag do Produto</th>
+              <th class="product">Produto</th>
+              <th class="tag">Tag do Produto</th>
               <th>Excluir Produtos</th>
               <th>Editar Produtos</th>
 
@@ -75,7 +75,7 @@ if ($sql->rowCount() > 0) {
         <button id="btn-register" class=" btn btn-primary" href="register.php">Cadastrar Produto</button>
 
         <button id="btnExport" class=" align-center btn btn-primary m-4">Emitir relatorio CSV</button>
-
+       
       </div>
     </div>
   </div>
