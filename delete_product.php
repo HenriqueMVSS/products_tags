@@ -12,6 +12,8 @@ $id= filter_input(INPUT_GET, 'id');
 if($id){
 
   $productDao->delete($id);
+  $productDao->deletept($id);
+  
   $tagDao->delete($id);
   
 }

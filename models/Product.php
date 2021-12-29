@@ -30,6 +30,7 @@ interface ProductDAO {
     public function findByProduct($product);
     public function update(Product $p);
     public function delete($id);
+    public function deletept($id);
 
 }
 

@@ -122,11 +122,19 @@ class ProductDaoMysql implements ProductDAO{
         return true;
     }
     public function delete($id)
-    {
+    {   
         $sql = $this->pdo->prepare("DELETE FROM product_tag WHERE product_tag.product_id = :id AND product_tag.tag_id = :id");
         $sql->bindValue(":id",$id);
         $sql->execute();
 
+    }
+
+    public function deletept($id)
+    {   
+        $sql = $this->pdo->prepare("DELETE FROM product WHERE id = :id");
+        $sql->bindValue(":id",$id);
+        $sql->execute();
+        
     }
 
 }
